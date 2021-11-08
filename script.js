@@ -1,14 +1,13 @@
-const BtnAllusers = document.getElementById("getusers-_deluser");
+const BtnAllusers = document.getElementById("getusers");
 const Btnuser = document.getElementById("getuser-id");
 const Btncreate = document.getElementById("postuser");
 const BtnEdit = document.getElementById("putuser-id");
 const BtnDel = document.getElementById("deluser-id");
-const BtnDelAll = document.getElementById("delallusers");
 
 BtnAllusers.addEventListener("click", () => {
   document.getElementById("tbod").textContent = ""
   axios
-    .get("https://cord-usman-task.herokuapp.com//users")
+    .get("https://cord-usman-task.herokuapp.com/users")
     .then((response) => {
       dataUsers = response.data;
       //console.log(dataUsers);
@@ -43,7 +42,7 @@ Btncreate.addEventListener("click", () => {
   let inpName = document.getElementById("crN").value;
   let inpEmail = document.getElementById("crE").value;
   let inpAddr = document.getElementById("crA").value;
-  const URL = "https://cord-usman-task.herokuapp.com//user";
+  const URL = "https://cord-usman-task.herokuapp.com/user";
   if (!inpName || !inpEmail || !inpAddr) {
     //if(inpName === ""||inpEmail === "" || inpAddr ==="") {}
     alert("Input All Fields");
@@ -68,7 +67,7 @@ Btnuser.addEventListener("click", () => {
   let InpgetUser = document.getElementById("get_user").value;
   document.getElementById("tbod").textContent = ""
   axios
-    .get(`https://cord-usman-task.herokuapp.com//user/${InpgetUser}`)
+    .get(`https://cord-usman-task.herokuapp.com/user/${InpgetUser}`)
     .then((response) => {
       //console.log(response.data);
       datauser = response.data;
@@ -97,7 +96,7 @@ BtnEdit.addEventListener("click", () => {
   let editEmai = document.getElementById("Edem").value;
   let editAddr = document.getElementById("EdAddr").value;
   axios
-    .put(`https://cord-usman-task.herokuapp.com//user/${editid}`, {
+    .put(`https://cord-usman-task.herokuapp.com/user/${editid}`, {
       name: editNam,
       email: editEmai,
       address: editAddr,
@@ -113,7 +112,7 @@ BtnEdit.addEventListener("click", () => {
 BtnDel.addEventListener("click", () => {
   const DeleID = document.getElementById("delid").value;
   axios
-    .delete(`https://cord-usman-task.herokuapp.com//user/${DeleID}`)
+    .delete(`https://cord-usman-task.herokuapp.com/user/${DeleID}`)
     .then((response) => {
       alert("User Deleted Succesfully")
       console.log(response.data +" "+ response.status);
