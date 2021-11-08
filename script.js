@@ -1,4 +1,4 @@
-const BtnAllusers = document.getElementById("getusers");
+const BtnAllusers = document.getElementById("getusers-_deluser");
 const Btnuser = document.getElementById("getuser-id");
 const Btncreate = document.getElementById("postuser");
 const BtnEdit = document.getElementById("putuser-id");
